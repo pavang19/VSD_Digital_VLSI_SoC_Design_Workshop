@@ -1,6 +1,6 @@
 # VSD_Digital_VLSI_SoC_Design_Workshop
 ### Table Of Contents
-#### 1.[Inception of open-source EDA, OpenLANE and sky130 PDK](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/edit/main/README.md#1-inception-of-open-source-eda-openlane-and-sky130-pdk-1)
+#### 1.[Inception of open-source EDA, OpenLANE and sky130 PDK](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/blob/main/README.md#1-inception-of-open-source-eda-openlane-and-sky130-pdk)
   - Introduction to all components of open-source digital asic design<br>
   - Simplified RTL2GDS flow
   - Introduction to OpenLANE detailed ASIC design flow 
@@ -22,14 +22,16 @@
   - Clock tree synthesis TritonCTS and signal integrity
 #### 5. [Final step for RTL2GDS using tritinRoute and openSTA](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/edit/main/README.md#5-final-step-for-rtl2gds-using-tritinroute-and-opensta-1)
   - Power Distribution Network and routing
-#### [References]
+#### [References](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/edit/main/README.md#references-1)
 
 
 
 
 ## 1. Inception of open-source EDA, OpenLANE and sky130 PDK<br>
 ![Screenshot (906)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/9c016ada-0c1a-4449-baa7-9a011851d27c)
+
 For open sourse ASIC Design we basically need three things:-<br>
+
 1.RTL Designs-RTL (Register Transfer Level) design is a crucial methodology used for designing digital circuits.At the RTL level, the design is considered in terms of the flow of data between registers and the logic operations that take place on that data.We can get open source RTL code and open source IP's from websites shich as opencores.org librecores.org and github
 
 2.EDA tools:- EDA (Electronic Design Automation) tools play a crucial role in the design, simulation, and layout of VLSI circuits.EDA tools are used to verify that a design will meet all the requirements of the manufacturing process.Few examples of open source EDA tools are openLANE, openROAD ,Qflow etc
