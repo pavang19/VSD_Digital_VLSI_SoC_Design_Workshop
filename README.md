@@ -1,28 +1,28 @@
 # VSD_Digital_VLSI_SoC_Design_Workshop
 ### Table Of Contents
-#### 1.[Inception of open-source EDA, OpenLANE and sky130 PDK](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/blob/main/README.md#1-inception-of-open-source-eda-openlane-and-sky130-pdk)
+#### 1.[Inception of open-source EDA, OpenLANE and sky130 PDK](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop?tab=readme-ov-file#1-inception-of-open-source-eda-openlane-and-sky130-pdk)
   - Introduction to all components of open-source digital asic design<br>
   - Simplified RTL2GDS flow
   - Introduction to OpenLANE detailed ASIC design flow 
   - Synthesis
-#### 2.[ Floorplanning and placemnet ](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/blob/main/README.md#2-floorplanning-and-placement)
+#### 2.[ Floorplanning and placemnet ](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop?tab=readme-ov-file#2-floorplanning-and-placement)
   - Steps to run floorplan using OpenLANE
   - Review floorplan files and steps to view floorplan
   - Run placemnet using openlane
-#### 3. [Design library cell using Magic Layout and ngspice characterization](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/blob/main/README.md#3-design-library-cell-using-magic-layout-and-ngspice-characterization-1)
+#### 3. [Design library cell using Magic Layout and ngspice characterization](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop?tab=readme-ov-file#3-design-library-cell-using-magic-layout-and-ngspice-characterization-1)
   - Labs for CMOS inverter ngspice simulations
   - Lab steps to extract spice netlist from std cell layout
   - Lab Steps to characterize the Inverter using sky130 model files
   - Lab challenge exercise to describe DRC error as geometrical construct
-#### 4. [Pre-layout timing analysis and clock tree synthesis](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/blob/main/README.md#4-pre-layout-timing-analysis-and-clock-tree-synthesis-1)
+#### 4. [Pre-layout timing analysis and clock tree synthesis](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop?tab=readme-ov-file#4-pre-layout-timing-analysis-and-clock-tree-synthesis-1)
   - Lab steps to convert magic layout to std cell LEF
   - Lab steps to configure synthesis settings to fix slack and include vsdinv
   - Timing Analysis using openSTA
   - Post-CTS OpenROAD timing analysis
   - Clock tree synthesis TritonCTS and signal integrity
-#### 5. [Final step for RTL2GDS using tritinRoute and openSTA](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/blob/main/README.md#5-final-step-for-rtl2gds-using-tritinroute-and-opensta-1)
+#### 5. [Final step for RTL2GDS using tritinRoute and openSTA](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop?tab=readme-ov-file#5-final-step-for-rtl2gds-using-tritinroute-and-opensta-1)
   - Power Distribution Network and routing
-#### [References](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/blob/main/README.md#references-1)
+#### [References](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop?tab=readme-ov-file#references-1)
 
 
 
