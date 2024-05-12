@@ -1,11 +1,33 @@
 # VSD_Digital_VLSI_SoC_Design_Workshop
 ### Table Of Contents
-## 1.Day 1 - Inception of open-source EDA, OpenLANE and sky130 PDK
-  -Introduction to all components of open-source digital asic design<br>
-  -Simplified RTL2GDS flow<br />
-  -Introduction to OpenLANE detailed ASIC design flow <br />
+#### 1.[Inception of open-source EDA, OpenLANE and sky130 PDK](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/edit/main/README.md#1-inception-of-open-source-eda-openlane-and-sky130-pdk-1)
+  - Introduction to all components of open-source digital asic design<br>
+  - Simplified RTL2GDS flow
+  - Introduction to OpenLANE detailed ASIC design flow 
+  - Synthesis
+#### 2.[ Floorplanning and placemnet ](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/edit/main/README.md#2-floorplanning-and-placement)
+  - Steps to run floorplan using OpenLANE
+  - Review floorplan files and steps to view floorplan
+  - Run placemnet using openlane
+#### 3. [Design library cell using Magic Layout and ngspice characterization](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/edit/main/README.md#3-design-library-cell-using-magic-layout-and-ngspice-characterization-1)
+  - Labs for CMOS inverter ngspice simulations
+  - Lab steps to extract spice netlist from std cell layout
+  - Lab Steps to characterize the Inverter using sky130 model files
+  - Lab challenge exercise to describe DRC error as geometrical construct
+#### 4. [Pre-layout timing analysis and clock tree synthesis](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/edit/main/README.md#4-pre-layout-timing-analysis-and-clock-tree-synthesis-1)
+  - Lab steps to convert magic layout to std cell LEF
+  - Lab steps to configure synthesis settings to fix slack and include vsdinv
+  - Timing Analysis using openSTA
+  - Post-CTS OpenROAD timing analysis
+  - Clock tree synthesis TritonCTS and signal integrity
+#### 5. [Final step for RTL2GDS using tritinRoute and openSTA](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/edit/main/README.md#5-final-step-for-rtl2gds-using-tritinroute-and-opensta-1)
+  - Power Distribution Network and routing
+#### [References]
 
-### Inception of open-source EDA, OpenLANE and sky130 PDK<br>
+
+
+
+## 1. Inception of open-source EDA, OpenLANE and sky130 PDK<br>
 ![Screenshot (906)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/9c016ada-0c1a-4449-baa7-9a011851d27c)
 For open sourse ASIC Design we basically need three things:-<br>
 1.RTL Designs-RTL (Register Transfer Level) design is a crucial methodology used for designing digital circuits.At the RTL level, the design is considered in terms of the flow of data between registers and the logic operations that take place on that data.We can get open source RTL code and open source IP's from websites shich as opencores.org librecores.org and github
@@ -64,8 +86,9 @@ Flop ratio = Number of D FF / Total number of cells
            = 1613/14876= 0.10842 = 10.842%               
 ```
 
-### Floorplanning and Placement
+## 2. Floorplanning and Placement
 
+### Steps to run floorplan using OpenLANE
 To run floorplan use the following commmand
 ```
 run_floorplan
@@ -78,9 +101,12 @@ But prior running the floorplan we should check the switches related floorplan a
 
 ![Screenshot (802)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/d103c41f-6b46-4b45-8628-b96a49f31d7f)
 
+### Review floorplan files and steps to view floorplan
+
 After floor plan it generates .def file which has information related to floorplanning like core utilization etc
 
 ![Screenshot (805)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/418f107f-8218-46bb-b1db-cb68bd179bf1)
+
 
 To view the results in GUI we will be using magic tool inside openLANE 
 ````
@@ -105,6 +131,8 @@ set env(FP_IO_MODE) 2
 Now all the pins are placed at the bottom side
 ![Screenshot (817)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/8359ed16-55e5-4433-92e5-e1d1ba445e8a)
 
+### Run placemnet using openlane
+
 Next step is to run the placement , to run the plcaemnet use this command
 ```
 run_placemnet
@@ -125,7 +153,9 @@ To select the design press S and V to bring it to the center and now press Z to 
 
 This is the zoomed view of the placement , the standard cells are all placed in the placement step
 
-### DAY 3: Design library cell using Magic Layout and ngspice characterization
+## 3. Design library cell using Magic Layout and ngspice characterization
+
+### Labs for CMOS inverter ngspice simulations
 
 To gitclone the given inverter files from github to your area use this command
 ```
@@ -141,6 +171,8 @@ To select the pmos and nmos device select the poly and diffusion layer intersect
 window to check if its proper or not
 ![image](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/366b364a-fefb-4977-b869-de95af3d6fc6)
 ![image](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/408e7305-9f23-4453-8d18-699081e5c2d1)
+
+### Lab steps to extract spice netlist from std cell layout 
 
 For characterizing this inverter in Ngspice we need the SPICE file , to ectract SPICE from the layout use these commands
 ```
@@ -202,7 +234,7 @@ Cell Fall delay -It is the time taken for the 50% of transition from high to low
 ![Screenshot (835)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/dab9dd06-a2e9-4f9e-869d-b5698dbe204a)
 
 Fall Delay = (4.07768-4.0501) e-09 = 27.58 ps <br />
-#### Lab introduction to Magic and steps to load Sky130 tech-rules
+### Lab introduction to Magic and steps to load Sky130 tech-rules
 
 Download the lab files for DRC error fixing exercise using the command
 
@@ -226,7 +258,7 @@ These rules can be checked on Google Skywater pdk documentation
 
 ![image](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/25762981-5a56-4800-a4a0-73a1bf816752)
 
-Lab challenge exercise to describe DRC error as geometrical construct
+### Lab challenge exercise to describe DRC error as geometrical construct
 
 ![image](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/145754ae-0871-4391-bd41-749d5457c316)
 
@@ -240,7 +272,7 @@ Now execute the commands
 drc style drc(full) 
 drc check
 
-## Day 4 - Pre-layout timing analysis and importance of good clock tree
+## 4. Pre-layout timing analysis and clock tree synthesis
 The next process is to get the .lef file from the inverter and use that file in picorv32 design flow <br />
 
 While designing standard cell following needs to be considered
@@ -260,8 +292,6 @@ In the layout ports are on the li1 layer , translate the grid into the tracks in
 To change grid into tracks first open the tracks file and then in console window type  help grid command.<br />
 
 ![image](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/f16c7ca0-cde8-4a15-8f49-1d1679f7e5d9) 
-
-![Screenshot (842)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/64f4e33c-c25b-4885-9ae5-9a0e7bfe105d)
 
 Now the tracks can be seen on the layout 
 
@@ -283,7 +313,7 @@ lef write
 
 ![Screenshot (846)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/a9985905-954e-4328-8aa2-995f6a7fc43c)
 
-#### Introduction to timing libs and steps to include new cell in synthesis
+### Introduction to timing libs and steps to include new cell in synthesis
 
 .lef file has been created, the next step is to add use this file for picorv32a<br />
 For that .lef needs to be copied in src folder
@@ -320,7 +350,7 @@ Synthesis is successful
 
 It can be seen that the inverter cell which was provided is being picked by picorv32a design during synthesis
 
-#### Lab steps to configure synthesis settings to fix slack and include vsdinv
+### Lab steps to configure synthesis settings to fix slack and include vsdinv
 
 Once the synthesis is run check the slack
 ![image](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/dfae50ea-4f59-4d45-8896-c3cc0b30cb2f)
@@ -350,7 +380,7 @@ The standard cell inverter can be seen in the design
 
 The inverter is placed and its aligned , this can be cheked using align command
 
-#### Lab steps to configure OpenSTA for post-synth timing analysis
+### Timing Analysis using openSTA
 
 Run the synthesis using the following commands
 
@@ -373,6 +403,205 @@ Create a pre_sta.conf file for STA analysis in openlane directory
 create a my_base.sdc file which will have the constarints in the openlane/designs/picorv32a/src directory
 
 ![Screenshot (864)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/6aa659b7-9769-41f1-9731-b033e15820b0)
+
+Now to run sta in this Desktop/work/tools/openlane_working_dir/openlane using the below command
+
+```
+sta pre_sta.conf
+```
+![Screenshot (867)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/5673bde9-069f-44f8-98df-bcd9c8c4ee36)
+![Screenshot (866)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/31fc8e5f-3279-448a-9ed5-68b191d07498)
+
+Here also the worst negative slack is -23.89. It can be reduced for that check the timing reports
+
+![Screenshot (870)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/de514f96-0f51-4b16-85c5-d324e82824fc)
+
+Look out for the nets having max fanout , then change the drive strength of corresponding gates
+
+To check the connections to a net 
+```
+report net -connenctions _10566_
+```
+Then replace the cell with higher drive strength using this command
+```
+replace_cell _13165_ sky130_fd_sc_hd__or3_4
+```
+to check timing
+```
+report_checks -fields {net cap slew input_pins} -digits 4
+```
+Here the or gate with drive strength 2 is has fanout as 4 ,so replace the cell with the cell having drive strength as 4
+
+![Screenshot (871)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/8f18870b-768b-417e-823c-aaabb27579eb)
+
+Now again check  STA
+
+![Screenshot (873)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/8fa9ef4e-8d73-4416-99bd-ec6e8db011d9)
+
+Here it can be seen that the slack has reduced 
+
+Repeat the same thing for other cells , the wns can still be reduced
+
+![Screenshot (868)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/af3a1068-6eeb-45dc-bc4d-073c019b3414)
+
+### Clock tree synthesis TritonCTS and signal integrity
+Lab steps to run CTS using TritonCTS
+
+The old netlist needs to be replaced with the new netlist in which the timing is improved ,for that first copy the current 
+synthesis.v file as old as the new file will replace the current file.
+
+To generate the new synthesis.v file use the following commad
+
+```
+write verilog  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/05-05_10-43/results/synthesis/picorv32a.synthesis.v
+```
+![Screenshot (874)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/24a6550f-d141-4221-96aa-246d6a8755c4)
+
+picorv32a.synthesis.v file is generated
+
+Run the Synthesis , Floorplan and placemnet again
+
+```
+prep -design picorv32a -tag 05-05_10-43 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+set ::env(SYNTH_SIZING) 1
+run_synthesis
+
+init_floorplan
+place_io
+tap_decap_or
+
+run_placement
+```
+
+For clock tree synthesis run this command
+
+```
+run_cts
+```
+
+![Screenshot (875)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/65b500a5-4328-468b-a73a-50d85d7823aa)
+
+
+![Screenshot (877)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/e29d789f-f9e4-4aa6-ba9e-312b1a2fd1ba)
+
+After CTS new file is generated
+
+### Post-CTS OpenROAD timing analysis
+
+```
+openroad
+
+read_lef /openLANE_flow/designs/picorv32a/runs/05-05_10-43/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/cts/picorv32a.cts.def
+write_db pico_cts.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+exit
+
+```
+
+![Screenshot (879)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/10ad7709-351d-425a-81b2-ba13e8fa4e27)
+
+![Screenshot (881)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/46fe49dc-de0e-4ed5-8a36-7bd9f3f01a0e)
+
+![Screenshot (883)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/d28f5248-49c0-49cd-9111-2419e78182b4)
+
+Lab exercise to replace bigger CTS buffers 
+
+first remove the clkbuf_1 from the list by using the below command
+```
+set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+```
+set the right def file and run cts
+```
+set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/placement/picorv32a.placement.def
+run_cts
+```
+
+To Enter the openROAD flow and check timing , use the following commands
+
+```
+openroad
+read_lef /openLANE_flow/designs/picorv32a/runs/05-05_10-43/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/cts/picorv32a.cts.def
+write_db pico_cts1.db
+read_db pico_cts1.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+exit
+
+echo $::env(CTS_CLK_BUFFER_LIST)
+set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]
+echo $::env(CTS_CLK_BUFFER_LIST)
+
+```
+![Screenshot (888)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/d3080b36-542a-4162-813b-5ed159803a22)
+![Screenshot (889)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/eca4ad42-7080-4ed9-aaf3-6b63426e96da)
+
+## 5. Final step for RTL2GDS using tritinRoute and openSTA
+
+### Power Distribution Network and routing
+
+ After running CTS , to build power distribution network (PDN) use this command
+ 
+ ```
+gen_pdn
+```
+![Screenshot (893)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/b72d6fc6-3170-4311-821f-90a8fb14399e)
+![Screenshot (894)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/09f661ff-61f5-4394-a91b-4b8b422d566b)
+
+To check PDN open Magic tool go to /tmp/floorplan/ inside your runs folder and run this command
+```
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 14-pdn.def &
+```
+![Screenshot (899)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/a91bece6-9f2c-4ce1-b318-d4e00b8de467)
+
+The power rails can be seen in this design so PDN is successful
+
+Now to do the final step i.e routing run this command
+```
+run_routing
+```
+![Screenshot (896)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/f768b6c8-ef42-48f4-8cad-0351e11a04e1)
+
+Routing is done with zero violations
+
+To view the final design in Magic tool fo to the results/routing/ in your runs folder and then use this command
+```
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.def &
+
+```
+![Screenshot (901)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/63d48021-fead-4a8a-b7b2-5ec38be84a07)
+Routing is done
+
+Final Generated Layout
+![Screenshot (900)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/780b0f3e-3637-45fe-a852-0657b9b1e07f)
+
+![Screenshot (902)](https://github.com/pavang19/VSD_Digital_VLSI_SoC_Design_Workshop/assets/55171083/7b3173d6-5420-4b14-8aea-0e29610a0ee7)
+
+## References
+
+https://github.com/google/skywater-pdk <br/>
+https://github.com/nickson-jose/vsdstdcelldesign <br />
+https://skywater-pdk.readthedocs.io/en/main/ <br />
+https://github.com/efabless/openlane2 <br />
+
+
+
 
 
 
